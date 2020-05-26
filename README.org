@@ -1,9 +1,9 @@
 Vsysto motorcycle dashcam browser
 
 * Hardware
-  Model: P6F
-  Camera: https://amzn.to/2ZARsWM
-  http://www.szv-sys.com/productshow.asp?showidd=46&sID=001007
+  - Model: P6F
+  - Vendor page: http://www.szv-sys.com/productshow.asp?showidd=46&sID=001007
+  - Amazon purchase: https://amzn.to/2ZARsWM
 
 * Install
 ** Depedencies  
