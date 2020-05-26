@@ -8,8 +8,13 @@ Vsysto motorcycle dashcam browser
 * Install
 ** Depedencies  
    - Python3
-   - [[http://bottlepy.org/docs/dev/][Bottle]] framework: =pip3 install bottle=
-   - [[https://requests.readthedocs.io/en/master/][Requests]] library: =pip3 install requests=
+   - [[http://bottlepy.org/docs/dev/][Bottle]]
+   - [[https://requests.readthedocs.io/en/master/][Requests]]
+   - [[https://github.com/martinblech/xmltodict][xmltodict]]
+    
+  Using *pip*:
+
+     =pip3 install bottle requests xmltodict=
 
 * Run
   =python3 dashcam-browse.py=
