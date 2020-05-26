@@ -5,7 +5,7 @@ import requests
 import json
 from bottle import route, run, template, request, response
 
-# `ftype` must be "Normal" or "Event"
+# `property` must be "Normal" or "Event"
 # ?backward=1&count=30&property=Normal&from=0&action=dir&format=all
 @route('/list')
 def list():
@@ -20,7 +20,6 @@ def list():
         assert r.headers["Content-Type"] == "application/xml"
         xml = r.content
     response.headers['Content-Type'] = 'application/json'
-    #response.set_header('Content-Type', 'application/json')
     return json.dumps(xmltodict.parse(xml))
 
 @route('/')
