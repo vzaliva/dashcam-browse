@@ -20,7 +20,9 @@ def list():
         assert r.headers["Content-Type"] == "application/xml"
         xml = r.content
     response.headers['Content-Type'] = 'application/json'
-    return json.dumps(xmltodict.parse(xml))
+    j = xmltodict.parse(xml)
+    j['URL'] = config['CAMERA']['URL']
+    return json.dumps(j)
 
 @route('/')
 def index():
@@ -30,14 +32,16 @@ def index():
 def index():
     return static_file('scripts.js', root='.')
 
-@route('/show/<url>/<width>')
-def show(url,width):
+# Params: path, width
+@route('/show')
+def show():
     return """
     <video width="{width}" controls autoplay>
-    <source src="{url}" type="video/mp4">
+    <source src="{url}{path}" type="video/mp4">
     </video>""".format(
-        url="",
-        width=1280
+        url=config['CAMERA']['URL'],
+        path=request.query.path.strip('/'),
+        width=request.query.width
     )
 
 def main():
