@@ -30,6 +30,16 @@ def index():
 def index():
     return static_file('scripts.js', root='.')
 
+@route('/show/<url>/<width>')
+def show(url,width):
+    return """
+    <video width="{width}" controls autoplay>
+    <source src="{url}" type="video/mp4">
+    </video>""".format(
+        url="",
+        width=1280
+    )
+
 def main():
     import argparse, configparser
     parser = argparse.ArgumentParser()
