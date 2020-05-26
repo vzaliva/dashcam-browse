@@ -20,7 +20,7 @@ or PC using your web browser.
 
    In order to configure your camera, you need to connect to it from your laptop or mobile
    phone and open series of URL's configuring it to access your local WiFi network.
-   Assuming your WiFi have SSID /mynet/ and password /mypass/ perform the following steps:
+   Assuming your WiFi have SSID /mynet/ and WPA-PSK password /mypass/ perform the following steps:
 
     1. http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Net.WIFI_STA.AP.1.SSID&value=mynet
     2. http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Net.WIFI_STA.AP.1.CryptoKey&value=mypass
@@ -49,5 +49,8 @@ or PC using your web browser.
    2. Run =python3 dashcam-browse.py=
    3. Open [[http://localhost:8080/]] in your browser
 
+** Author
+
+   Vadim Zaliva [[mailto:lord@crocodile.org]]
 
    
