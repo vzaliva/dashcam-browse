@@ -1,22 +1,53 @@
-Vsysto motorcycle dashcam browser
+* Vsysto motorcycle dashcam web browser
 
-* Hardware
-  - Model: P6F
-  - Vendor page: http://www.szv-sys.com/productshow.asp?showidd=46&sID=001007
-  - Amazon purchase: https://amzn.to/2ZARsWM
+By default, the camera creates its own WiFi network to which you
+connect from your mobile phone using a mobile app. I found this
+inconvenient for several reasons: 1) downloading huge files to a
+mobile phone is not practical; 2) I want to download them to my
+computer for video editing and post-processing.
 
-* Install
-** Depedencies  
-   - Python3
-   - [[http://bottlepy.org/docs/dev/][Bottle]]
-   - [[https://requests.readthedocs.io/en/master/][Requests]]
-   - [[https://github.com/martinblech/xmltodict][xmltodict]]
+Instead, using this script, you can configure your camera to connect
+to your home WiFi network and then download files directly to your Mac
+or PC using your web browser.
+
+** Hardware
+
+   - Model: P6F
+   - Vendor page: http://www.szv-sys.com/productshow.asp?showidd=46&sID=001007
+   - Amazon purchase: https://amzn.to/2ZARsWM
+
+** Configure your Camera
+
+   In order to configure your camera, you need to connect to it from your laptop or mobile
+   phone and open series of URL's configuring it to access your local WiFi network.
+   Assuming your WiFi have SSID /mynet/ and password /mypass/ perform the following steps:
+
+    1. http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Net.WIFI_STA.AP.1.SSID&value=mynet
+    2. http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Net.WIFI_STA.AP.1.CryptoKey&value=mypass
+    3. http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Net.WIFI_STA.AP.1.EncType&value=AES
+    4. http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Net.Dev.2.Start&value=1
+    5. http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Net.Dev.1.Start&value=0
+    6. http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Net&value=reset
+
+    (after the last step camera will restart and should reconnect to your WiFi)
+  
+** Install
+
+*** Depedencies  
+    - Python3
+    - [[http://bottlepy.org/docs/dev/][Bottle]]
+    - [[https://requests.readthedocs.io/en/master/][Requests]]
+    - [[https://github.com/martinblech/xmltodict][xmltodict]]
     
-  Using *pip*:
+   Using *pip*:
 
-     =pip3 install bottle requests xmltodict=
+      =pip3 install bottle requests xmltodict=
 
-* Run
-  =python3 dashcam-browse.py=
+** Run
+
+   1. Edit ~dashcam.cfg~ and specify IP address of your camera
+   2. Run =python3 dashcam-browse.py=
+   3. Open [[http://localhost:8080/]] in your browser
 
 
+   
