@@ -3,7 +3,7 @@
 import xmltodict
 import requests
 import json
-from bottle import route, run, template, request, response
+from bottle import route, run, template, request, response, static_file
 
 # `property` must be "Normal" or "Event"
 # ?backward=1&count=30&property=Normal&from=0&action=dir&format=all
@@ -24,7 +24,11 @@ def list():
 
 @route('/')
 def index():
-    return '<b>Hello1</b>!'
+    return static_file('index.html',root='.')
+
+@route('/scripts.js')
+def index():
+    return static_file('scripts.js', root='.')
 
 def main():
     import argparse, configparser
