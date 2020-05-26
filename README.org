@@ -12,9 +12,9 @@ or PC using your web browser.
 
 ** Hardware
 
-   - Model: P6F
-   - Vendor page: http://www.szv-sys.com/productshow.asp?showidd=46&sID=001007
-   - Amazon purchase: https://amzn.to/2ZARsWM
+   - Model: *P6F*
+   - [[http://www.szv-sys.com/productshow.asp?showidd=46&sID=001007][Vendor page]]
+   - [[https://amzn.to/2ZARsWM][Purchase at Amazon.com]]
 
 ** Configure your Camera
 
@@ -51,6 +51,6 @@ or PC using your web browser.
 
 ** Author
 
-   Vadim Zaliva [[mailto:lord@crocodile.org]]
+   [[mailto:lord@crocodile.org][Vadim Zaliva]]
 
    
