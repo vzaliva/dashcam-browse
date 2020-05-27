@@ -18,18 +18,6 @@ function formatBytes(bytes, decimals = 2) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-function play(name, url, width, height) {
-    var new_window = window.open('', '_blank');
-    new_window.document.write(
-        `<!doctype html><html><head><title>${name}</title><meta charset="UTF-8" /></head>
-           <body>
-             <video width="${width}" height="${height}" controls autoplay>
-               <source src=${url} type="video/mp4">
-             </video>
-           </body>
-         </html>`);
-}
-
 $(() => {
 
     let offset = 0;
@@ -87,12 +75,12 @@ $(() => {
             formatter: (value, row, index) => {
                 const nl = value.split("/");
                 const justname = nl[nl.length-1] ;
-                const relpath = value.startsWith('/') ? value.substr(1) : value;
+                const relapth = value.startsWith('/') ? value.substr(1) : value;
                 let width,height;
                 [width,height] = row["resolution"].split("x") ;
-                const mov_url = CONFIG['cameraURL']+relpath;
-                return `<a href="#" onclick="play('${justname}','${mov_url}',${width},${height})">${justname}</a>`+
-                    `&nbsp;&nbsp;[<a href="${mov_url}">\u21E9</a>]`;
+                const dl_url = CONFIG['cameraURL'];
+                return `<a href="/show?path=${value}&width=${width}&height=${height}">${justname}</a>`+
+                    `&nbsp;&nbsp;[<a href="${dl_url}${relapth}">\u21E9</a>]`;
             }
         }, {
             field: 'time',
