@@ -26,7 +26,8 @@ $(() => {
 
     const load = () => {
 
-        const url = '/list';
+        //TODO
+        const url = 'https://raw.githubusercontent.com/vzaliva/dashcam-browse/master/sample_list.xml';
 
         const qry = {
             backward: 1,
@@ -37,25 +38,33 @@ $(() => {
             format: 'all'
         };
 
-        $.getJSON(url + '?' + $.param(qry)).then(function(res) {
-            if (!res) {
+        $.get(url + '?' + $.param(qry)).then(function(xmlString) {
+
+            var xmlDoc = $.parseXML( xmlString );
+            var $xml = $( xmlDoc );
+            
+            if (!$xml) {
                 $('#btn-more').hide();
                 return;
             }
-            if (!res.Normal) {
-                $('#btn-more').hide();
-                return;
-            }
-            if (!res.Normal.file) {
-                $('#btn-more').hide();
-                return;
-            }
-            offset += res.Normal.file.length;
-            if (res.Normal.file.length < limit) {
+            let files = new Array();
+            $xml.find('file').each(function() {
+                name = $('name', this).text();
+                tmpThumb = $('thumb', this).text();
+                files.push({
+                    "name": $('name', this).text(),
+                    "size": $('size', this).text(),
+                    "time": $('time', this).text(),
+                    "attr": $('attr', this).text(),
+                    "resolution": $('format', this).attr('size'),
+                    "duration": $('format', this).attr('time'),
+                    "fps": $('format', this).attr('fps')
+                })});
+            offset += files.length;
+            if (files.length < limit) {
                 $('#btn-more').hide();
             };
-            dl_url = res.URL;
-            $('#table').bootstrapTable('append', res.Normal.file);
+            $('#table').bootstrapTable('append', files);
         });
     };
     
@@ -68,7 +77,8 @@ $(() => {
                 const justname = nl[nl.length-1] ;
                 const relapth = value.startsWith('/') ? value.substr(1) : value;
                 let width,height;
-                [width,height] = row["format"]["@size"].split("x") ;
+                [width,height] = row["resolution"].split("x") ;
+                const dl_url = CONFIG['cameraURL'];
                 return `<a href="/show?path=${value}&width=${width}&height=${height}">${justname}</a>`+
                     `&nbsp;&nbsp;[<a href="${dl_url}${relapth}">\u21E9</a>]`;
             }
@@ -91,7 +101,7 @@ $(() => {
                 return formatBytes(value,2);
             }
         },{
-            field: 'format.@time',
+            field: 'duration',
             title: 'Duration',
             formatter: (value, row, index) => {
                 return secondsToHms(Math.round(parseFloat(value)));

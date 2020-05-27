@@ -31,23 +31,10 @@ or PC using your web browser.
 
     (after the last step camera will restart and should reconnect to your WiFi)
   
-** Install
-
-*** Depedencies  
-    - Python3
-    - [[http://bottlepy.org/docs/dev/][Bottle]]
-    - [[https://requests.readthedocs.io/en/master/][Requests]]
-    - [[https://github.com/martinblech/xmltodict][xmltodict]]
-    
-   Using *pip*:
-
-      =pip3 install bottle requests xmltodict=
-
 ** Run
 
-   1. Edit ~dashcam.cfg~ and specify IP address of your camera
-   2. Run =python3 dashcam-browse.py=
-   3. Open [[http://localhost:8080/]] in your browser
+   1. Edit ~config.js~ and specify IP address of your camera
+   3. Open ~index.html~ in your browser
 
 ** Author
 
