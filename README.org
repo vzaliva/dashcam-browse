@@ -7,8 +7,8 @@ mobile phone is not practical; 2) I want to download them to my
 computer for video editing and post-processing.
 
 Instead, using this script, you can configure your camera to connect
-to your home WiFi network and then download files directly to your Mac
-or PC using your web browser.
+to your home WiFi network and then play or download files directly to
+your Mac or PC using your web browser.
 
 [[screenshot.png]]
 
