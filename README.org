@@ -10,6 +10,8 @@ Instead, using this script, you can configure your camera to connect
 to your home WiFi network and then download files directly to your Mac
 or PC using your web browser.
 
+[[screenshot.png]]
+
 ** Hardware
 
    - Model: *P6F*
