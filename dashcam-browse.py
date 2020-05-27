@@ -17,7 +17,7 @@ def list():
         r = requests.get("%scgi-bin/Config.cgi?%s" %
                          (config['CAMERA']['URL'],request.query_string))
         assert r.status_code == 200, "HTTP error %d" % r.status_code
-        assert r.headers["Content-Type"] == "application/xml"
+        assert r.headers["Content-Type"] == "text/xml"
         xml = r.content
     response.headers['Content-Type'] = 'application/json'
     j = xmltodict.parse(xml)
