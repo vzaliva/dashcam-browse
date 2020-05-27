@@ -1,4 +1,4 @@
-* Vsysto motorcycle dashcam web browser
+* Vsysto Motorcycle Dashcam Web Browser
 
 By default, the camera creates its own WiFi network to which you
 connect from your mobile phone using a mobile app. I found this
@@ -29,7 +29,7 @@ or PC using your web browser.
     5. http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Net.Dev.1.Start&value=0
     6. http://192.72.1.1/cgi-bin/Config.cgi?action=set&property=Net&value=reset
 
-    (after the last step camera will restart and should reconnect to your WiFi)
+    (after the last step camera will restart and should connect to your WiFi)
   
 ** Install
 
@@ -52,5 +52,3 @@ or PC using your web browser.
 ** Author
 
    [[mailto:lord@crocodile.org][Vadim Zaliva]]
-
-   
