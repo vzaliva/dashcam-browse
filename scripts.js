@@ -69,7 +69,7 @@ $(() => {
                 const relapth = value.startsWith('/') ? value.substr(1) : value;
                 let width,height;
                 [width,height] = row["format"]["@size"].split("x") ;
-                return `<a href="/show?path=${value}&width=${width}&height=${height}">${justname}</a>`+
+                return `<a href="/show?path=${value}&width=${width}&height=${height}" target="_blank">${justname}</a>`+
                     `&nbsp;&nbsp;[<a href="${dl_url}${relapth}">\u21E9</a>]`;
             }
         }, {

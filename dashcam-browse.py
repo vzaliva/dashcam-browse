@@ -38,7 +38,9 @@ def show():
     return """
     <video width="{width}" controls autoplay>
     <source src="{url}{path}" type="video/mp4">
-    </video>""".format(
+    </video>
+    <br><a href="{url}{path}">Download</a>
+    """.format(
         url=config['CAMERA']['URL'],
         path=request.query.path.strip('/'),
         width=request.query.width
